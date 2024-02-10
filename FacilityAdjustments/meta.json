@@ -1,0 +1,24 @@
+{
+  "ID": "akronyhm.facilityadjustments",
+  "AssemblyName": "FacilityAdjustments.dll",
+  "Author": [
+    {
+      "Key": "English",
+      "Value": "Akronyhm"
+    }
+  ],
+  "Version": "1.0",
+  "Name": [
+    {
+      "Key": "English",
+      "Value": "Facility Adjustments"
+    }
+  ],
+  "Description": [
+    {
+      "Key": "English",
+      "Value": "Adds the option to enable facilities to generate resources per day"
+    }
+  ],
+  "Dependencies": []
+}

@@ -1,0 +1,7 @@
+﻿Key,Type,Desc,English
+FA_SETTING_MATERIALPRODUCTIONPERFACILITY,Text,,Material production per day
+FA_SETTING_TECHPRODUCTIONPERFACILITY,Text,,Tech production per day
+FA_SETTING_MATERIALPRODUCTIONPERFACILITY_DESC,Text,,Sets the amount of materials each fabrication plant will produce daily. The plant will produce materials at an hourly rate that is equal to this value divided by 24
+FA_SETTING_TECHPRODUCTIONPERFACILITY_DESC,Text,,Sets the amount of tech each research lab will produce daily. The lab will produce tech at an hourly rate that is equal to this value divided by 24
+FA_DESC_MATERIALPRODUCTIONPERFACILITY_FORMATTED,Text,,Produces {0} materials per day
+FA_DESC_TECHPRODUCTIONPERFACILITY_FORMATTED,Text,,Produces {0} tech per day
