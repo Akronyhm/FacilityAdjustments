@@ -1,4 +1,5 @@
 using Base.Levels;
+using Newtonsoft.Json.Linq;
 using PhoenixPoint.Common.Game;
 using PhoenixPoint.Modding;
 using System;
@@ -46,6 +47,23 @@ namespace FacilityAdjustments
 				LogPath = System.IO.Path.Combine(ModDirectory, "FALog.log");
 				FacilityAdjustmentsLogger.Initialize(LogPath, "FA", ModDirectory);
 				FacilityAdjustmentsLogger.Info("Logger Initialized");
+
+				#region Post mod version
+				var metaPath = System.IO.Path.Combine(ModDirectory, "meta.json");
+				FacilityAdjustmentsLogger.Info($"Looking for meta.json at path [{metaPath}]");
+				var metaContent = System.IO.File.ReadAllText(metaPath);
+				JObject jObj = JObject.Parse(metaContent);
+				var versionKey = "Version";
+				if (jObj.TryGetValue(versionKey, out var targetValue))
+				{
+					FacilityAdjustmentsLogger.Info($"Welcome to Facility Adjustments version {targetValue}");
+				}
+				else
+				{
+					FacilityAdjustmentsLogger.Info("Welcome to Facility Adjustments. Version could not be determined from meta.json");
+				}
+				#endregion
+
 				FTools.LoadLocalization();
 
 				if (Main != null)
