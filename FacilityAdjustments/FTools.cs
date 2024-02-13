@@ -10,6 +10,7 @@ namespace FacilityAdjustments
 {
     public static class FTools
     {
+		public static string AssemblyName = "akronyhm.facilityadjustments";
 		static string LocalizationFileName = "L10N.csv";
 		public static void LoadLocalization()
 		{

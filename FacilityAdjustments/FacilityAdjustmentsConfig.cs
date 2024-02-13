@@ -76,9 +76,9 @@ namespace FacilityAdjustments
                     return;
                 }
                 var modConfigs = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, ModRawConfig>>(System.IO.File.ReadAllText(path));
-                if (modConfigs != null && modConfigs.ContainsKey("com.flylake.facilityadjustments"))
+                if (modConfigs != null && modConfigs.ContainsKey(FTools.AssemblyName))
                 {
-                    ModRawConfig rawFAConfig = modConfigs["com.flylake.facilityadjustments"];
+                    ModRawConfig rawFAConfig = modConfigs[FTools.AssemblyName];
                     if (rawFAConfig != null && ((Dictionary<string, object>)(object)rawFAConfig).Count == _internalConfigFields.Count)
                     {
                         base.LoadFromRawConfig(rawFAConfig);
