@@ -75,14 +75,25 @@ namespace FacilityAdjustments
                     FacilityAdjustmentsLogger.Info("Failed to find modconfig");
                     return;
                 }
+                else
+                {
+                    FacilityAdjustmentsLogger.Info($"Reading config file from path [{path}]");
+                }
                 var modConfigs = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, ModRawConfig>>(System.IO.File.ReadAllText(path));
                 if (modConfigs != null && modConfigs.ContainsKey(FTools.AssemblyName))
                 {
                     ModRawConfig rawFAConfig = modConfigs[FTools.AssemblyName];
                     if (rawFAConfig != null && ((Dictionary<string, object>)(object)rawFAConfig).Count == _internalConfigFields.Count)
                     {
-                        base.LoadFromRawConfig(rawFAConfig);
                         FacilityAdjustmentsLogger.Info("Loaded raw config");
+                        base.LoadFromRawConfig(rawFAConfig);
+                    }
+                    else
+                    {
+                        foreach (var kvp in rawFAConfig)
+                        {
+                            FacilityAdjustmentsLogger.Info($"Loaded setting [{kvp.Key}] with value [{kvp.Value}]");
+                        }
                     }
                 }
             }
