@@ -67,7 +67,11 @@ namespace FacilityAdjustments
                 });
 
                 FacilityAdjustmentsLogger.Info($"Successfully detected [{fields.Count()}] mod settings");
+                FacilityAdjustmentsLogger.Info($"Clearing [{_internalConfigFields.Count()}] existing configuration fields");
+                _internalConfigFields.Clear();
+
                 _internalConfigFields.AddRange(fields);
+                FacilityAdjustmentsLogger.Info($"Added [{_internalConfigFields.Count()}] configuration fields to configruation manager");
                 string configFilePathRoot = GameUtl.GameComponent<PlatformComponent>().Platform.GetPlatformData().GetFilePathRoot();
                 string path = System.IO.Path.Combine(configFilePathRoot, "modconfig.json");
                 if (false == System.IO.File.Exists(path))
